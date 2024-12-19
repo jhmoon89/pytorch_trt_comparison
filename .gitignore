@@ -1,5 +1,5 @@
-hw_clip/cpp_ver/engine_files/
+hw_clip/cpp_ver/engine_files/*
 hw_clip/RN50x64.pt
-Pixel_aligned_VLM/Lseg/checkpoints/
-Pixel_aligned_VLM/Lseg/data/
+Pixel_aligned_VLM/Lseg/checkpoints/*
+Pixel_aligned_VLM/Lseg/data/example_output/*
 !hw_clip/cpp_ver/engine_files/convert_onnx_to_trt.sh

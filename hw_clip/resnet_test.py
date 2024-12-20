@@ -43,7 +43,7 @@ if measure_time:
             # print(f"Execution time: {elapsed_time:.5f} seconds")
 
     print(f"Average time per inference: {np.mean(time_list):.6f} seconds")
-    print(np.mean(time_list))
+    # print(np.mean(time_list))
 
 
 # for _ in tqdm(range(num_iterations), desc="Inference Timing"):

@@ -81,7 +81,7 @@ Execution time: 15.457ms
 
 
 ## Execution time summary
-| Model           | Pytorch Execution Time | ONNX to TRT Execution Time | TRT Execution Time |
-|-----------------|------------------------|----------------------------|---------------------|
-| **CLIP**        | 4.363 ms               | N/A                        | 1.931 ms            |
-| **Lseg (Resnet)**| 22.162 ms             | N/A                        | 15.457 ms           |
+| Model           | Pytorch Execution Time | TRT Execution Time |
+|-----------------|------------------------|---------------------|
+| **CLIP**        | 4.363 ms               | 1.931 ms            |
+| **Lseg (Resnet)**| 22.162 ms             | 15.457 ms           |

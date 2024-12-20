@@ -1,4 +1,4 @@
-# Install script for directory: /home/jihoon-epitone/Downloads/project_hw/hw_clip/cpp_ver
+# Install script for directory: /home/jihoon-epitone/Downloads/pytorch_trt_comparison/hw_clip/cpp_ver
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jihoon-epitone/Downloads/project_hw/hw_clip/cpp_ver/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jihoon-epitone/Downloads/pytorch_trt_comparison/hw_clip/cpp_ver/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

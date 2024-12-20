@@ -27,7 +27,8 @@ model = LSegRN_img_only(
     arch_option=0
 )
 
-model.load(path='./Lseg/checkpoints/demo_e200.ckpt')
+model.load(path='./Pixel_aligned_VLM/Lseg/checkpoints/demo_e200.ckpt')
+# model.load(path='./Lseg/checkpoints/demo_e200.ckpt')
 
 # eval mode
 model.eval()
@@ -43,7 +44,22 @@ dummy_input = dummy_input.to(device)
 #     if param.dtype == torch.int64:
 #         param.data = param.data.to(torch.int32)
 #################################################################
-export_model = "lseg_model_resnet.onnx"
+export_model = "./hw_clip/cpp_ver/engine_files/lseg_model_resnet_test.onnx"
+# export_model = "./lseg_model_resnet_test.onnx"
+
+# 시간 측정
+num_iterations = 100  # 반복 횟수
+total_time = 0.0
+
+for _ in tqdm(range(num_iterations), desc="Inference Timing"):
+    start = time.time()
+    with torch.no_grad():  # 평가 모드에서 불필요한 그래디언트 계산 비활성화
+        output = model(dummy_input)
+    end = time.time()
+    total_time += (end - start)
+
+average_time_per_inference = total_time / num_iterations
+print(f"Average time per inference: {average_time_per_inference:.6f} seconds")
 
 # export to onnx
 torch.onnx.export(

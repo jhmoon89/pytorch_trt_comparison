@@ -1,8 +1,8 @@
 CMakeFiles/trt_model_test.dir/src/main.cpp.o: \
- /home/jihoon-epitone/Downloads/project_hw/hw_clip/cpp_ver/src/main.cpp \
+ /home/jihoon-epitone/Downloads/pytorch_trt_comparison/hw_clip/cpp_ver/src/main.cpp \
  /usr/include/stdc-predef.h \
- /home/jihoon-epitone/Downloads/project_hw/hw_clip/cpp_ver/include/inference.h \
- /home/jihoon-epitone/Downloads/project_hw/hw_clip/cpp_ver/include/logger.h \
+ /home/jihoon-epitone/Downloads/pytorch_trt_comparison/hw_clip/cpp_ver/include/inference.h \
+ /home/jihoon-epitone/Downloads/pytorch_trt_comparison/hw_clip/cpp_ver/include/logger.h \
  /usr/include/x86_64-linux-gnu/NvInfer.h \
  /usr/include/x86_64-linux-gnu/NvInferLegacyDims.h \
  /usr/include/x86_64-linux-gnu/NvInferRuntimeCommon.h \

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/jihoon-epitone/Downloads/pytorch_trt_comparison/hw_clip/cpp_ver/include -I/usr/local/cuda/include -I/home/jihoon-epitone/Downloads/install_lenovo_part2-001/librealsense/include -isystem /usr/local/include/opencv4
+CXX_INCLUDES = -I/home/jihoon-epitone/Downloads/pytorch_trt_comparison/hw_clip/cpp_ver/include -I/usr/local/cuda/include -isystem /usr/local/include/opencv4
 
 CXX_FLAGS =  -fdiagnostics-color=always -g -g -std=gnu++17
 

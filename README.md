@@ -1,5 +1,8 @@
 # pytorch_trt_comparison
 
+## Requirements
+Make sure you first follow the instructions here (Lseg section): https://github.com/Lab-of-AI-and-Robotics/Pixel_aligned_VLM
+
 ## CLIP
 
 pytorch model execution time command 

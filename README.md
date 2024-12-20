@@ -50,6 +50,38 @@ Execution time: 22.162ms
 
 ## Onnx to TRT conversion
 
+1. Give permission to sh file
+```
+chmod +x hw_clip/cpp_ver/engine_files/convert_onnx_to_trt.sh
+```
+2. Convert CLIP model from onnx to trt
+```
+hw_clip/cpp_ver/engine_files/convert_onnx_to_trt.sh hw_clip/cpp_ver/engine_files/clip_visual_component.onnx hw_clip/cpp_ver/engine_files/clip_visual_component.trt
+```
+3. Convert Lseg model from onnx to trt
+```
+hw_clip/cpp_ver/engine_files/convert_onnx_to_trt.sh hw_clip/cpp_ver/engine_files/lseg_resnet.onnx hw_clip/cpp_ver/engine_files/
+lseg_resnet.trt
+```
+
 ## Trt models
-CLIP: 1.931ms
-Lseg: 15.457ms
+
+### CLIP
+```
+hw_clip/cpp_ver/build/./trt_model_test hw_clip/cpp_ver/engine_files/clip_visual_component.trt
+```
+Execution time: 1.931ms
+
+
+### Lseg (Resnet base)
+```
+hw_clip/cpp_ver/build/./trt_model_test hw_clip/cpp_ver/engine_files/lseg_resnet.trt
+```
+Execution time: 15.457ms
+
+
+## Execution time summary
+| Model           | Pytorch Execution Time | ONNX to TRT Execution Time | TRT Execution Time |
+|-----------------|------------------------|----------------------------|---------------------|
+| **CLIP**        | 4.363 ms               | N/A                        | 1.931 ms            |
+| **Lseg (Resnet)**| 22.162 ms             | N/A                        | 15.457 ms           |

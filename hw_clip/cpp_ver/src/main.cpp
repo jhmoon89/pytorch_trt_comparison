@@ -12,10 +12,6 @@ int main(int argc, char* argv[]) {
         const std::string modelPath = argv[1]; // Get model path from command-line argument
         const int numRuns = 1000;
 
-        // const std::string modelPath = "../engine_files/lseg_model_241115.trt";
-        // const std::string modelPath = "../engine_files/visual_component.trt";
-        // const int numRuns = 1000;
-
         InferenceEngine engine(modelPath);
         engine.infer(numRuns);
     } catch (const std::exception& e) {

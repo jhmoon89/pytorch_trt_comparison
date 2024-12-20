@@ -8,43 +8,44 @@ Make sure you first follow the instructions here (Lseg section): https://github.
 ## Pytorch models
 
 ### CLIP
-1. To make onnx file
+1. To load model only
+```
+python hw_clip/CLIP_resnet_test.py
+```
+2. To make onnx file
 ```
 python hw_clip/CLIP_resnet_test.py --make_onnx_file
 ```
-2. To measure execution time
+3. To measure execution time
 ```
 python hw_clip/CLIP_resnet_test.py --measure_time
 ```
-3. To do both
+4. To do both
 ```
 python hw_clip/CLIP_resnet_test.py --make_onnx_file --measure_time
-```
-4. To load model only
-```
-python hw_clip/CLIP_resnet_test.py
 ```
 
 Execution time: 4.363ms
 
 
 ### Lseg (Resnet base)
-1. To make onnx file
+1. To load model only
 ```
 python Pixel_aligned_VLM/Lseg/Lseg_resnet_test.py
 ```
-2. To measure execution time
+2. To make onnx file
+```
+python Pixel_aligned_VLM/Lseg/Lseg_resnet_test.py --make_onnx_file
+```
+3. To measure execution time
 ```
 python Pixel_aligned_VLM/Lseg/Lseg_resnet_test.py --measure_time
 ```
-3. To do both
+4. To do both
 ```
 python Pixel_aligned_VLM/Lseg/Lseg_resnet_test.py --make_onnx_file --measure_time
 ```
-4. To load model only
-```
-python Pixel_aligned_VLM/Lseg/Lseg_resnet_test.py
-```
+
 
 Execution time: 22.162ms
 

@@ -61,13 +61,17 @@ hw_clip/cpp_ver/engine_files/convert_onnx_to_trt.sh hw_clip/cpp_ver/engine_files
 ```
 3. Convert Lseg model from onnx to trt
 ```
-hw_clip/cpp_ver/engine_files/convert_onnx_to_trt.sh hw_clip/cpp_ver/engine_files/lseg_resnet.onnx hw_clip/cpp_ver/engine_files/
-lseg_resnet.trt
+hw_clip/cpp_ver/engine_files/convert_onnx_to_trt.sh hw_clip/cpp_ver/engine_files/lseg_resnet.onnx hw_clip/cpp_ver/engine_files/lseg_resnet.trt
 ```
 
 ## Trt models
 
+After you make trt files, you can test trt models
+
 ### CLIP
+
+Make sure you have "clip_visual_component.trt" in engine_files folder.
+
 ```
 hw_clip/cpp_ver/build/./trt_model_test hw_clip/cpp_ver/engine_files/clip_visual_component.trt
 ```
@@ -75,6 +79,9 @@ Execution time: 1.931ms
 
 
 ### Lseg (Resnet base)
+
+Make sure you have "lseg_resnet.trt" in engine_files folder.
+
 ```
 hw_clip/cpp_ver/build/./trt_model_test hw_clip/cpp_ver/engine_files/lseg_resnet.trt
 ```

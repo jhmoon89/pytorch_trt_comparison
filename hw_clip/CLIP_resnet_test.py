@@ -6,27 +6,32 @@ from clip import load
 import time
 import numpy as np
 from tqdm import tqdm
+import argparse
 
+parser = argparse.ArgumentParser(description="Run visual component of CLIP with optional ONNX export.")
+parser.add_argument("--make_onnx_file", action="store_true", help="Set to export the model to ONNX")
+parser.add_argument("--measure_time", action="store_true", help="Set to measure inference time")
+args = parser.parse_args()
 
 # flags
-make_onnx_file = False
-measure_time = True
+make_onnx_file = args.make_onnx_file
+measure_time = args.measure_time
 
 # Load the entire CLIP model
-# model, _ = load("ViT-B/32")  # Or whichever variant you want
 model, _ = load("RN50")  # Or whichever variant you want
 
-# print(model)
+# Move the model to GPU (if available)
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model = model.to(device)
 
 # Extract the visual component
 visual_component = model.visual
 
-# # Save the weights of the visual component
-# torch.save(visual_component.state_dict(), 'visual_weights.pth')
-
 # Later, to load the visual weights back into the model
 weight_path = './hw_clip/cpp_ver/engine_files/visual_weights.pth'
 visual_component.load_state_dict(torch.load(weight_path))
+
+print("CLIP pytorch model loaded.")
 
 if measure_time:
     iter_num = 1000
@@ -34,7 +39,7 @@ if measure_time:
 
     with torch.no_grad(): 
         for i in tqdm(range(iter_num)):
-            input_tensor = torch.randn(1, 3, 224, 224).cuda().half()
+            input_tensor = torch.randn(1, 3, 224, 224).to(device).half()
             start_time = time.time()
             output = visual_component(input_tensor)
             end_time = time.time()
@@ -43,28 +48,18 @@ if measure_time:
             # print(f"Execution time: {elapsed_time:.5f} seconds")
 
     print(f"Average time per inference: {np.mean(time_list):.6f} seconds")
-    # print(np.mean(time_list))
 
-
-# for _ in tqdm(range(num_iterations), desc="Inference Timing"):
-#     start = time.time()
-#     with torch.no_grad():  # 평가 모드에서 불필요한 그래디언트 계산 비활성화
-#         output = model(dummy_input)
-#     end = time.time()
-#     total_time += (end - start)
-
-# average_time_per_inference = total_time / num_iterations
-# print(f"Average time per inference: {average_time_per_inference:.6f} seconds")
 
 if make_onnx_file:
     # Define a dummy input for ONNX export (assuming 3x224x224 input for the visual component)
-    dummy_input = torch.randn(1, 3, 224, 224).to(next(visual_component.parameters()).device)
+    # dummy_input = torch.randn(1, 3, 224, 224).to(next(visual_component.parameters()).device)
+    dummy_input = torch.randn(1, 3, 224, 224).to(device)
 
     # Export the visual component to ONNX
     torch.onnx.export(
         visual_component,                    # Model to export
         dummy_input,                         # Dummy input
-        "visual_component.onnx",             # Output ONNX file name
+        "./hw_clip/cpp_ver/engine_files/clip_visual_component.onnx",             # Output ONNX file name
         export_params=True,                  # Store parameters in the model file
         opset_version=10,                    # ONNX opset version (adjust as needed)
         do_constant_folding=True,            # Simplify the model by folding constants

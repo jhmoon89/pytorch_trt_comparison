@@ -28,7 +28,7 @@ model = model.to(device)
 visual_component = model.visual
 
 # Later, to load the visual weights back into the model
-weight_path = './hw_clip/cpp_ver/engine_files/visual_weights.pth'
+weight_path = './hw_clip/cpp_ver/engine_files/clip_visual_weights.pth'
 visual_component.load_state_dict(torch.load(weight_path))
 
 print("CLIP pytorch model loaded.")

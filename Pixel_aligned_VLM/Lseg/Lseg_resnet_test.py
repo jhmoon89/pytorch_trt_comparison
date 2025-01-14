@@ -47,6 +47,12 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = model.to(device)
 dummy_input = torch.randn(1, 3, 384, 384).to(device)
 
+# #############################################################
+# # Tracing the model
+# traced_model = torch.jit.trace(model, dummy_input)
+# traced_model.save("./hw_clip/cpp_ver/engine_files/lseg_resnet_traced.pt")
+# #############################################################
+
 if measure_time:
     # time measurement
     num_iterations = 100  # 반복 횟수

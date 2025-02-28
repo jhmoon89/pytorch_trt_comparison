@@ -10,4 +10,4 @@ Pixel_aligned_VLM/Lseg/pretrained_vit.onnx
 *.onnx
 *.zip
 *.pyc
-
+__pycache__/

@@ -4,3 +4,10 @@ Pixel_aligned_VLM/Lseg/checkpoints/*
 Pixel_aligned_VLM/Lseg/data/example_output/*
 !hw_clip/cpp_ver/engine_files/convert_onnx_to_trt.sh
 !hw_clip/cpp_ver/engine_files/clip_visual_weights.pth
+Pixel_aligned_VLM/datasets/ADEChallengeData2016/*
+Pixel_aligned_VLM/datasets/*
+Pixel_aligned_VLM/Lseg/pretrained_vit.onnx
+*.onnx
+*.zip
+*.pyc
+

@@ -89,14 +89,14 @@ for param in model_to_export.parameters():
     if param.grad is not None:
         param.grad.data = param.grad.data.cuda()
 
-# Export to ONNX
-torch.onnx.export(
-    model_to_export,  # Make sure this is on the correct device
-    dummy_input,
-    "model.onnx",
-    input_names=['input'],
-    output_names=['output'],
-    dynamic_axes={'input': {0: 'batch_size'}, 'output': {0: 'batch_size'}},
-    opset_version=12,
-    do_constant_folding=True
-)
+# # Export to ONNX
+# torch.onnx.export(
+#     model_to_export,  # Make sure this is on the correct device
+#     dummy_input,
+#     "model.onnx",
+#     input_names=['input'],
+#     output_names=['output'],
+#     dynamic_axes={'input': {0: 'batch_size'}, 'output': {0: 'batch_size'}},
+#     opset_version=12,
+#     do_constant_folding=True
+# )
